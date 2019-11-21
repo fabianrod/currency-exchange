@@ -11,7 +11,6 @@ import HistoricItem from '../HistoricItem';
 import Footer from '../Footer';
 import './home.scss';
 
-// eslint-disable-next-line react/prop-types
 function Home({ currentCurrency, getCurrencyValue }) {
   const [USDAmount, setUSDAmount] = useState(0);
   const [EURAmount, setEURAmount] = useState('');
