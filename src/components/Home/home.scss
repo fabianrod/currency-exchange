@@ -77,10 +77,12 @@
 
 @media screen and (max-width: 640px) {
   .input-currency {
+    width: 100%;
     display: block;
   }
 
   .input-currency .form-control {
+    width: 100%;
     max-width: 100%;
   }
   
