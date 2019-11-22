@@ -9,6 +9,7 @@ import {
 import HistoricItem from '../HistoricItem';
 import Footer from '../Footer';
 import Header from '../Header';
+import convertEurToUsd from '../../utils/currencies.util';
 import './home.scss';
 
 function Home({
@@ -22,10 +23,7 @@ function Home({
     // eslint-disable-next-line
   }, []);
   const handlerEURAmount = (e) => setEURAmount(e.target.value);
-  const convertEurToUsd = (amount) => {
-    const calculate = amount * currentCurrency.rates.USD;
-    setUSDAmount(calculate);
-  };
+  const calculate = (amount) => setUSDAmount(convertEurToUsd(amount, currentCurrency.rates.USD));
   return (
     <div className="home-page">
       <Header />
@@ -34,7 +32,7 @@ function Home({
           <Form.Control placeholder={currentCurrency.base} onChange={handlerEURAmount} />
           <Form.Control placeholder="USD" value={USDAmount} disabled />
         </Form.Group>
-        <Button className="btn-calculate" onClick={() => convertEurToUsd(EURAmount)}>CALCULATE</Button>
+        <Button className="btn-calculate" onClick={() => calculate(EURAmount)}>CALCULATE</Button>
       </div>
       <Container className="historic-price">
         <h3>Historic Price</h3>
