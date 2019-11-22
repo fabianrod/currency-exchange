@@ -1,6 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import NumberFormat from 'react-number-format';
 import {
   Container,
   Form,
@@ -22,7 +23,7 @@ function Home({
     getCurrencyValue();
     // eslint-disable-next-line
   }, []);
-  const handlerEURAmount = (e) => setEURAmount(e.target.value);
+  const handlerEURAmount = (e) => setEURAmount(e.value);
   const calculate = (amount) => setUSDAmount(convertEurToUsd(amount, currentCurrency.rates.USD));
   return (
     <div className="home-page">
@@ -31,11 +32,11 @@ function Home({
         <Form.Group className="input-currency">
           <div className="input-block">
             <span>€</span>
-            <Form.Control placeholder={currentCurrency.base} onChange={handlerEURAmount} />
+            <NumberFormat className="form-control" thousandSeparator placeholder={currentCurrency.base} decimalScale={4} onValueChange={(values) => handlerEURAmount(values)} />
           </div>
           <div className="input-block">
             <span>$</span>
-            <Form.Control placeholder="USD" value={USDAmount} disabled />
+            <NumberFormat className="form-control" placeholder="USD" value={USDAmount} disabled thousandSeparator decimalScale={2} />
           </div>
         </Form.Group>
         <Button className="btn-calculate" onClick={() => calculate(EURAmount)}>CALCULATE</Button>
