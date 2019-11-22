@@ -32,6 +32,7 @@
 .input-currency {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .input-currency .form-control {
@@ -41,6 +42,25 @@
   height: 45px;
   border: 0px;
   border-radius: 0px;
+}
+
+.input-currency span {
+    background-color: #fff;
+    color: #495057;
+    height: 44px;
+    width: 10px;
+    margin-right: -22px;
+    z-index: 1;
+    padding: 10px 12px 10px 5px;
+}
+
+.input-currency .form-control:disabled {
+  background-color: #fff !important;
+}
+
+.input-block {
+  display: flex;
+  align-items: center;;
 }
 
 .btn-calculate {
@@ -62,5 +82,10 @@
 
   .input-currency .form-control {
     max-width: 100%;
-  } 
+  }
+  
+  .input-currency span {
+    padding-top: 11px;
+    height: 45px;
+  }
 }

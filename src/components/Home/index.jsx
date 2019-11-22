@@ -29,8 +29,14 @@ function Home({
       <Header />
       <div className="convert-currency">
         <Form.Group className="input-currency">
-          <Form.Control placeholder={currentCurrency.base} onChange={handlerEURAmount} />
-          <Form.Control placeholder="USD" value={USDAmount} disabled />
+          <div className="input-block">
+            <span>€</span>
+            <Form.Control placeholder={currentCurrency.base} onChange={handlerEURAmount} />
+          </div>
+          <div className="input-block">
+            <span>$</span>
+            <Form.Control placeholder="USD" value={USDAmount} disabled />
+          </div>
         </Form.Group>
         <Button className="btn-calculate" onClick={() => calculate(EURAmount)}>CALCULATE</Button>
       </div>
