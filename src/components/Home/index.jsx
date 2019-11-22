@@ -3,14 +3,12 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Container,
-  Image,
-  Row,
-  Nav,
   Form,
   Button,
 } from 'react-bootstrap';
 import HistoricItem from '../HistoricItem';
 import Footer from '../Footer';
+import Header from '../Header';
 import './home.scss';
 
 function Home({
@@ -30,25 +28,7 @@ function Home({
   };
   return (
     <div className="home-page">
-      <Container>
-        <Row className="header">
-          <Image src="https://via.placeholder.com/100.png?text=Logo" alt="Currency Exchange" className="logo" roundedCircle />
-        </Row>
-        <Nav className="menu">
-          <Nav.Item>
-            <Nav.Link href="/">Home</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/#">Another link</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/#">Another link</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/#">Another link</Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Container>
+      <Header />
       <div className="convert-currency">
         <Form.Group className="input-currency">
           <Form.Control placeholder={currentCurrency.base} onChange={handlerEURAmount} />
